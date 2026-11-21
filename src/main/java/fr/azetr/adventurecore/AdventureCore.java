@@ -6,12 +6,14 @@ public final class AdventureCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getServer().getLogger().info("Pligin start !");
+        getCommand("adventure").setExecutor(new AdventureCommand());
+
+        getServer().getLogger().info("Plugin AdventureCore start !");
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getServer().getLogger().info("Plugin AdventureCore stop !");
     }
 }
