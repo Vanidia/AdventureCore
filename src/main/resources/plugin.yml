@@ -6,3 +6,6 @@ prefix: AC
 load: STARTUP
 authors: [azetr]
 description: plugin du Projet d'AdventureCore
+commands:
+  adventure:
+    description: permet d'ouvrir le menu principale
