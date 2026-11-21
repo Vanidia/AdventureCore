@@ -13,6 +13,7 @@ public class AdventureCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
+        player.openInventory(InvManager.MainInv());
 
         return false;
     }

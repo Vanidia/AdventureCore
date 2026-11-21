@@ -1,12 +1,12 @@
 package fr.azetr.adventurecore;
 
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class EventsListener implements Listener {
@@ -28,21 +28,28 @@ public class EventsListener implements Listener {
 
     @EventHandler
     public void onPlayerPickup(EntityPickupItemEvent event) {
-        if (!(event.getEntity() instanceof Player)) return;
-
-        Player player = (Player) event.getEntity();
+        if (!(event.getEntity() instanceof Player player)) return;
 
         player.sendMessage(player.getName());
 
     }
 
     @EventHandler
-    public void onPlayerDeath(PlayerDeathEvent event) {
-        Player killer = event.getPlayer().getKiller();
+    public void onEntityDeath(EntityDeathEvent event) {
+
+        Player killer = event.getEntity().getKiller();
+
+        if (killer == null) return;
 
         killer.sendMessage(killer.getName());
-
     }
 
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (!(event.getView().getTitle().equals("Mon Menu"))) return;
+
+        event.setCancelled(true);
+
+    }
 
 }
