@@ -8,6 +8,8 @@ public final class AdventureCore extends JavaPlugin {
     public void onEnable() {
         getCommand("adventure").setExecutor(new AdventureCommand());
 
+        getServer().getPluginManager().registerEvents(new EventsListener(), this);
+
         getServer().getLogger().info("Plugin AdventureCore start !");
 
     }
