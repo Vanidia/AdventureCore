@@ -1,0 +1,8 @@
+name: AdventureCore
+version: '${version}'
+main: fr.azetr.adventurecore.AdventureCore
+api-version: '1.21'
+prefix: AC
+load: STARTUP
+authors: [azetr]
+description: plugin du Projet d'AdventureCore
