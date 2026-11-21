@@ -116,3 +116,20 @@ run/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+# Maven
+target/
+
+# Paper / Minecraft
+world/
+world_nether/
+world_the_end/
+plugins/
+logs/
+
+# Configuration sensible
+.env
+.env.*
+secrets.yml
+
+# IDE
+.vscode/
