@@ -1,0 +1,12 @@
+quests:
+  bucheronnage:
+    name: "Bucheron"
+    description: "Mine 32 blocs de bois"
+    material: OAK_LOG
+    objective: 32
+
+  chasseur:
+    name: "Chasseur"
+    description: "Tue 10 zombies"
+    material: IRON_SWORD
+    objective: 10

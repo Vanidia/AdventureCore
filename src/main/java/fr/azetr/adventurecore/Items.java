@@ -23,11 +23,13 @@ public class Items {
         return item;
     }
 
-    public static ItemStack Levels() {
+    public static ItemStack Levels(int level) {
         ItemStack item =  new ItemStack(Material.EXPERIENCE_BOTTLE);
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName("Levels");
+        meta.setLore(List.of(
+                "Level: " + level));
 
         item.setItemMeta(meta);
 

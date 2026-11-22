@@ -9,11 +9,9 @@ import org.jetbrains.annotations.NotNull;
 public class AdventureCommand implements CommandExecutor {
     @Override
     public boolean onCommand (@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
-        if (!(sender instanceof Player)) return true;
+        if (!(sender instanceof Player player)) return true;
 
-        Player player = (Player) sender;
-
-        player.openInventory(InvManager.MainInv());
+        player.openInventory(InvManager.MainInv(player));
 
         return false;
     }
