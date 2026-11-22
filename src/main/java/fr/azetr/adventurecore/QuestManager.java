@@ -65,6 +65,7 @@ public class QuestManager {
     }
 
     public void startQuest(Player player, String questId) {
+
         String uuid = player.getUniqueId().toString();
         String path = "players." + uuid + ".quests." + questId;
 
@@ -78,11 +79,15 @@ public class QuestManager {
             return;
         }
 
+        if (hasActiveQuest(player)) {
+            player.sendMessage("Tu as déjà une autre quête en cours !");
+            return;
+        }
+
         playersConfig.set(path + ".progress", 0);
         playersConfig.set(path + ".completed", false);
 
         savePlayers();
-
         player.sendMessage("Tu as commencé la quête !");
     }
 
@@ -134,6 +139,26 @@ public class QuestManager {
 
         playersConfig.set(path + ".progress", progress);
         savePlayers();
+    }
+
+    public boolean hasActiveQuest(Player player) {
+
+        String path = "players." + player.getUniqueId() + ".quests";
+
+        if (!playersConfig.contains(path)) return false;
+
+        for (String questId : playersConfig.getConfigurationSection(path).getKeys(false)) {
+
+            boolean completed = playersConfig.getBoolean(
+                    path + "." + questId + ".completed"
+            );
+
+            if (!completed) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public int getQuestProgress(Player player, String questId) {
