@@ -9,3 +9,7 @@ description: plugin du Projet d'AdventureCore
 commands:
   adventure:
     description: permet d'ouvrir le menu principale
+    usage: adventure
+  quests:
+    description: permet d'ouvrir le menu des quest
+    usage: quest

@@ -7,6 +7,7 @@ public final class AdventureCore extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("adventure").setExecutor(new AdventureCommand());
+        getCommand("quests").setExecutor(new QuestsCommand());
 
         getServer().getPluginManager().registerEvents(new EventsListener(), this);
 
